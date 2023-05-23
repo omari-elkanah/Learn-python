@@ -37,7 +37,7 @@ else:
             price = 1500
         else: exit()
     else:
-        exit()
+        exit("thank you")
     total =int(amount)*price
     print("Your total amount of "+ order +" "+amount+" is priced at "+str(total)+"")
     exit()
