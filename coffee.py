@@ -1,7 +1,7 @@
 #print("Hello world")
 name = input("what is your name?\n")
 
-if name == "ben" or "Ben" or "BEN" or "BeN":
+if name == "ben" or name== "Ben" or name == "BEN":
     print("You are not welcome")
     exit()
 else:
