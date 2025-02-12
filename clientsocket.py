@@ -1,7 +1,7 @@
-import socket,subprocess
+import socket
 print('######################################################\n');print("Do NOT forget to change PORT AND SERVER IP IN CLIENT");print('\n######################################################\n\n')
-#server= '169.254.17.216'
-server2='192.168.23.117'
+#server= '169.254.17.216' #nic ip
+server2='192.168.23.117' #ip by connection
 client=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 addr=socket.gethostbyname(socket.gethostname())
 Cname=socket.gethostname()
@@ -23,12 +23,8 @@ def send(msg):
     print(client.recv(2048).decode(format))
 send(f"Here is my address {Addr} {Cname}")
 
-file= client.recv(2048).decode(format)
-print(file)
-filesize= client.recv(2048).decode(format)
-print(filesize)
 def receive_file(filename,client):
-    with open(filename, 'w+b') as filepath:
+    with open(filename, 'wb') as filepath:
         print("\nfile Created")
         done=False
         while not done:
@@ -40,6 +36,6 @@ def receive_file(filename,client):
                 filepath.write(data)
         print("\nfile received")
 
-receive_file("1wupdate.txt", client)
+receive_file("update.bat", client)
 client.close()
-print("Socket closed. Exiting program")
+print("Socket closed. Exit the program")
