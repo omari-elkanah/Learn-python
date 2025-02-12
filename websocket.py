@@ -17,6 +17,7 @@ SERVER2.bind(ADDR2)
 def file1(conn):
     #### enter the file path #####
     filesize = os.path.getsize("1.txt")
+    ##also enter file path##
     with open("1.txt", 'rb') as f:
         data =f.read(1024)
         conn.send(data)
